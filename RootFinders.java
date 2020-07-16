@@ -23,8 +23,7 @@ public class RootFinders {
         double step = (max-min)/points;
 
         int index = 0;
-
-        for(double x = min; x <= max; x += step, index++){
+        for(double x = min; x < max && index < points; x += step, index++){
             data[index][0] = x; //Set the x-value
             data[index][1] = f.equation(x); //Set the y-value
         }
@@ -204,12 +203,13 @@ public class RootFinders {
             d = b - (b-a)/(fb-fa) * fb;
 
             res.error.add(Math.abs(d - previous)/previous);
-            previous = d;
 
-            if(Math.abs(d) < EPSILON){
+            if(Math.abs(d-previous) < EPSILON){
                 //System.out.println("Convergence");
                 return res.evaluate();
             }
+
+            previous = d;
 
             a = b;
             b = d;
@@ -296,12 +296,13 @@ public class RootFinders {
             a = a - (fa * delta * a)/(f.equation(a + delta * a) - fa);
 
             res.error.add(Math.abs(a - previous)/a);
-            previous = a;
 
-            if(Math.abs(a) < EPSILON){
+            if(Math.abs(a-previous) < EPSILON){
                 //System.out.println("Convergence");
                 return res.evaluate();
             }
+
+            previous = a;
 
         }
 

@@ -2,7 +2,6 @@ public class Main {
 
     public static void main(String[] args){
 
-
         Equation A = new Equation(){
             //f(x) = 2x^3 - 11.7x^2 +17.7x - 5
             public double equation(double x){
@@ -26,25 +25,27 @@ public class Main {
                 return (50 * Math.sinh(50/x))/x - Math.cosh(50/x) + 1;
             }
         };
-
+        
         Tester tester = new Tester();
         try{
-            tester.changeFileName("graphA");
-            tester.writeHeader("X", "Y");
-            tester.getGraph(A, -1, 5, 10000);
-            tester.closeFile();
+            // tester.changeFileName("graphA");
+            // tester.writeHeader("iteration", "X", "Y");
+            // tester.getGraph(A, -1, 5, 10000);
+            // tester.closeFile();
 
-            tester.changeFileName("graphB");
-            tester.writeHeader("X", "Y");
-            tester.getGraph(B, 100, 150, 10000);
-            tester.closeFile();
+            // tester.changeFileName("graphB");
+            // tester.writeHeader("iteration", "X", "Y");
+            // System.out.println("shiba");
+            // tester.getGraph(B, 100, 150, 10000);
+            // System.out.println("power");
+            // tester.closeFile();
         }catch(Exception e){
-
+            e.printStackTrace();
         }
-
-        RootFinders.separator(A, 0, 4, 16);
-
-        //RootFinders.separator(B, 120, 130, 10);
+        
+        RootFinders.separator(A, 1, 3, 16 );
+    
+        RootFinders.separator(B, 120, 130, 10);
     
     }
     

@@ -18,6 +18,8 @@ public class Tester {
 
         double[][] graph = RootFinders.graph(f, min, max, points);
 
+        System.out.println(graph.length);
+
         for(int i = 0; i < graph.length; i++){
 
             writer.append(i+","+ graph[i][0] +","+ graph[i][1] +",\n");
